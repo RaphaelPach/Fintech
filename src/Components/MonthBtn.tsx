@@ -15,7 +15,7 @@ function formatDate (date: Date) {
 
 
 const MouthBtn = ({ n }: { n: number }) => {
-  const { setInicial, setFinal } = useData();
+  const { setInicio, setFinal } = useData();
   
 const setMonth = (n: number) => {
   const date = new Date();
@@ -23,7 +23,7 @@ const setMonth = (n: number) => {
 
   const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
   const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  setInicial(formatDate(firstDay));
+  setInicio(formatDate(firstDay));
   setFinal(formatDate(lastDay));
 }
 

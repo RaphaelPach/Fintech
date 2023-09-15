@@ -2,13 +2,13 @@ import DateInput from './DateInput'
 import { useData } from '../Context/DataContext'
 
 const DateRange = () => {  
- const {inicio, final, setInicial, setFinal} = useData();
+ const {inicio, final, setInicio, setFinal} = useData();
   return (
     <form className='box flex' onSubmit={(e) => e.preventDefault}>
       <DateInput 
        label='Inicio'
        value={inicio}
-       onChange={({ target }) => setInicial(target.value)}
+       onChange={({ target }) => setInicio(target.value)}
       />
       <DateInput 
       label='Final'

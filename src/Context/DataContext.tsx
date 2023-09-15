@@ -1,8 +1,7 @@
 import React from "react";
 import UseFetch from "../Hooks/UseFetch";
-import { useState } from "react";
 
-type Isales = {
+export type IVenda = {
   id: string;
   nome: string;
   preco: number;
@@ -15,10 +14,10 @@ type Isales = {
 type IDataContext = {
   loading: boolean;
   error: string | null;
-  data: Isales[] | null;
+  data: IVenda[] | null;
   inicio: string;
   final: string;
-  setInicial: React.Dispatch<React.SetStateAction<string>>;
+  setInicio: React.Dispatch<React.SetStateAction<string>>;
   setFinal: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -41,11 +40,11 @@ function getDate (n: number) {
 
 
 export const DataContextProvider = ({children}: React.PropsWithChildren) => {
-  const [inicio, setInicial] = useState(getDate(30));
- const [final, setFinal] = useState(getDate(0)); 
+  const [inicio, setInicio] = React.useState(getDate(30));
+ const [final, setFinal] = React.useState(getDate(0)); 
   
-  const { data, loading, error }= UseFetch<Isales[]>(
-    'https://data.origamid.dev/vendas/?inicio=${inicio}&fim=${final}'
+  const { data, loading, error }= UseFetch<IVenda[]>(
+    `https://data.origamid.dev/vendas/?inicio=${inicio}&final=${final}`
     );
   
   return (
@@ -56,7 +55,7 @@ export const DataContextProvider = ({children}: React.PropsWithChildren) => {
     error,
     inicio,
     final,
-    setInicial,
+    setInicio,
     setFinal
     
     }}>
