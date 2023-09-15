@@ -39,7 +39,7 @@ const Resumo = () => {
           </div>
         </div>
         <div className="box">
-          <GraficoVendas />
+          <GraficoVendas data={data} />
         </div>
     </section>
   )
